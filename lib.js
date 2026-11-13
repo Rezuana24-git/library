@@ -17,15 +17,13 @@ function addBookToLibrary (title, author, pages, read){
     const book = new Book (title, author, pages , read);
     myLibrary.push(book);
 }
-
-addBookToLibrary("book", "wani" , 234 , false);
-addBookToLibrary("bo", "wai" , 244 , true);
-
-console.log(myLibrary)
+addBookToLibrary("Atomic Habit" , "James clear" ,520 , true)
+addBookToLibrary("ሕማማት" , "ሔኖክ ሃይሌ", 450 , true)
 function display(){
     library.innerHTML = "";
     myLibrary.forEach((item)=>{
         const remove = document.createElement("button")
+        remove.classList.add("remove")
         remove.textContent = "Remove"
         remove.dataset.id = item.id
         remove.addEventListener("click", (e)=>{
@@ -34,7 +32,8 @@ function display(){
             display()
         })
         const toggle = document.createElement("button")
-        toggle.textContent = "Toggle read";
+        toggle.textContent = item.read ? "Read" : "Not read";
+        toggle.classList.add(item.read? "read" : "not-read")
         toggle.dataset.id = item.id;
         toggle.addEventListener("click" , ()=>{
             const book =myLibrary.find(b => b.id === toggle.dataset.id)
@@ -48,10 +47,7 @@ function display(){
         const aut = document.createElement("p")
         aut.textContent = item.author
         const pag = document.createElement("p")
-        pag.textContent = item.pages
-        const rea = document.createElement("p")
-        rea.textContent = item.read ? "Read" : "Not read"
-        cards.append(tit , aut ,pag ,rea, remove, toggle)
+        cards.append(tit , aut ,pag ,toggle,remove)
         library.appendChild(cards)
     })
 }

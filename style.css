@@ -1,8 +1,193 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
     box-sizing: border-box;
 }
-.card{
-    border: 2px solid brown;
+
+body {
+    font-family: "Poppins", system-ui, sans-serif;
+    background: #f0eff1;
+    color: #222;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #fffcfb;
+    padding: 16px 24px;
+    box-shadow: 0 2px 6px #ddd;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#new {
+    display: block;
+    margin: 32px auto;
+    background: none;
+    color: #111;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 8px 16px;
+}
+
+#new:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.library {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 24px;
+    flex: 1;
+    align-content: start;
+}
+
+.card {
+    background: #fffcfb;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.card p {
+    margin: 0;
+}
+
+.card p:first-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card p:nth-child(2) {
+    color: #555;
+}
+button {
+    font: inherit;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2f5d8a;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(0.94);
+}
+
+.card .read {
+    background: #9fd8a8;
+    color: #222;
+}
+
+.card .not-read {
+    background: #ff9b9b;
+    color: #222;
+}
+
+.card .remove {
+    background: #eceeee;
+    color: #222;
+}
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 24px;
+    background: #f0eff1;
+    width: min(400px, 90vw);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+form h2 {
+    margin: 0;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="number"] {
+    background: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font: inherit;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: 2px solid #9dfb9d;
+}
+.check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+form button {
+    background: #9dfb9d;
+    color: #111;
+    font-weight: 600;
+}
+
+footer {
+    text-align: center;
+    padding: 24px;
+    font-weight: 500;
+}
+
+@media (min-width: 600px) {
+    .library {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    header {
+        padding: 20px 60px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .library {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0 60px;
+    }
+}
+@media (min-width: 1200px) {
+    header {
+        padding: 20px 200px;
+    }
+
+    .library {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        padding: 0 200px;
+    }
 }
